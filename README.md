@@ -4,7 +4,7 @@
 <hr>
 
 <div align = "justify">
-I've currently started reading <a href="https://interpreterbook.com/"><b>Writing an Interpreter in Go</b></a> by <b>Thorsten Bell</b>. Bell believes "<i>Interpreters are Magical!</i>" and so are they. The book covers fundamental concepts of interpreters, such as lexical analysis, parsing, and evaluation. We'll follow Bell's approach and work on each part in stages.
+I've currently started reading <a href="https://interpreterbook.com/"><b>Writing an Interpreter in Go</b></a> by <b>Thorsten Ball</b>. Ball believes "<i>Interpreters are Magical!</i>" and so are they. The book covers fundamental concepts of interpreters, such as lexical analysis, parsing, and evaluation. We'll follow Ball's approach and work on each part in stages.
 
 
 #### Stage 1 : The Lexer
