@@ -3,7 +3,7 @@
 **An interpreter for the Hippo programming language built in *Go*!**
 <hr>
 
-<div style="text-align: justify">
+<div align = "justify">
 I've currently started reading <a href="https://interpreterbook.com/"><b>Writing an Interpreter in Go</b></a> by <b>Thorsten Bell</b>. Bell believes "<i>Interpreters are Magical!</i>" and so are they. The book covers fundamental concepts of interpreters, such as lexical analysis, parsing, and evaluation. We'll follow Bell's approach and work on each part in stages.
 
 
