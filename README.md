@@ -11,6 +11,8 @@ I'm currently reading <a href="https://interpreterbook.com/"><b>Writing an Inter
 
 We'll first create a lexer that takes as input our source code, does the lexical analysis and returns the tokens it creates along the way. This makes it easier for us to work with. It'll turn our <b>Hippo</b> code into the tokens designed by us.
 
+The finished Stage 1 can be found <a href="https://github.com/adityjhaa/hippo_interpreter/tree/538fffca7567e8c4deb1eb50789e9b4c644b02e5">here</a>.
+
 </div>
 
 <hr>
