@@ -3,10 +3,10 @@
 package parser
 
 import (
+	"fmt"
 	"hippo/ast"
 	"hippo/lexer"
 	"hippo/token"
-	"fmt"
 )
 
 type Parser struct {
@@ -14,13 +14,13 @@ type Parser struct {
 
 	currToken token.Token
 	peekToken token.Token
-	
+
 	errors []string
 }
 
 func New(l *lexer.Lexer) *Parser {
 	p := &Parser{
-		l:	l,
+		l:      l,
 		errors: []string{},
 	}
 
@@ -36,7 +36,7 @@ func (p *Parser) Errors() []string {
 
 func (p *Parser) peekError(t token.TokenType) {
 	msg := fmt.Sprintf("expected next token to be %s, got %s instead",
-	t, p.peekToken.Type)
+		t, p.peekToken.Type)
 	p.errors = append(p.errors, msg)
 }
 
@@ -49,7 +49,7 @@ func (p *Parser) ParseProgram() *ast.Program {
 	program := &ast.Program{}
 	program.Statements = []ast.Statement{}
 
-	for p.currToken.Type != token.EOF {
+	for !p.currTokenIs(token.EOF) {
 		stmt := p.parseStatement()
 		if stmt != nil {
 			program.Statements = append(program.Statements, stmt)
@@ -61,10 +61,11 @@ func (p *Parser) ParseProgram() *ast.Program {
 }
 
 func (p *Parser) parseStatement() ast.Statement {
-
 	switch p.currToken.Type {
 	case token.LET:
 		return p.parseLetStatement()
+	case token.RETURN:
+		return p.parseReturnStatement()
 	default:
 		return nil
 	}
@@ -82,6 +83,18 @@ func (p *Parser) parseLetStatement() *ast.LetStatement {
 	if !p.expectPeek(token.ASSIGN) {
 		return nil
 	}
+
+	for !p.currTokenIs(token.SEMICOLON) {
+		p.nextToken()
+	}
+
+	return stmt
+}
+
+func (p *Parser) parseReturnStatement() *ast.ReturnStatement {
+	stmt := &ast.ReturnStatement{Token: p.currToken}
+
+	p.nextToken()
 
 	for !p.currTokenIs(token.SEMICOLON) {
 		p.nextToken()
