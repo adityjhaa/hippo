@@ -285,7 +285,7 @@ func testIntegerLiteral(t *testing.T, il ast.Expression, value int64) bool {
 	return true
 }
 
-func TestOperatorPredenceParsing(t *testing.T) {
+func TestOperatorPrecedenceParsing(t *testing.T) {
 
 	tests := []struct {
 		input    string
@@ -343,6 +343,10 @@ func TestOperatorPredenceParsing(t *testing.T) {
 			"3 + 4 * 5 == 3 * 1 + 4 * 5",
 			"((3 + (4 * 5)) == ((3 * 1) + (4 * 5)))",
 		},
+		{
+			"-1 * 2 + 3",
+			"(((-1) * 2) + 3)",
+		},
 	}
 
 	for _, tt := range tests {
@@ -352,7 +356,7 @@ func TestOperatorPredenceParsing(t *testing.T) {
 		checkParserErrors(t, p)
 
 		actual := program.String()
-		if actual != program.String() {
+		if actual != tt.expected {
 			t.Errorf("expected=%q, got=%q", tt.expected, actual)
 		}
 	}
