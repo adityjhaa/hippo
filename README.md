@@ -17,6 +17,7 @@ The finished Stage 1 can be found <a href="https://github.com/adityjhaa/hippo_in
 
 After creating the tokens, we have the parser, that uses these tokens to build up the structure of the program (commonly known as the abstract syntax tree). This AST also throws errors (if any) related to syntax and structure of <b>Hippo</b> code.
 
+The finished Stage 2 can be found <a href="https://github.com/adityjhaa/hippo_interpreter/tree/0d46b5964c2d199928903d3332c867af617c1270">here</a>.
 
 </div>
 
