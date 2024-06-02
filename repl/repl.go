@@ -5,6 +5,7 @@ package repl
 import (
 	"bufio"
 	"fmt"
+	"hippo/evaluator"
 	"hippo/lexer"
 	"hippo/parser"
 	"io"
@@ -57,8 +58,11 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		io.WriteString(out, program.String())
-		io.WriteString(out, "\n")
+		evaluated := evaluator.Eval(program)
+		if evaluated != nil {
+			io.WriteString(out, evaluated.Inspect())
+			io.WriteString(out, "\n")
+		}
 	}
 }
 
