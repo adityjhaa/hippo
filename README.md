@@ -19,6 +19,10 @@ After creating the tokens, we have the parser, that uses these tokens to build u
 
 The finished Stage 2 can be found <a href="https://github.com/adityjhaa/hippo_interpreter/tree/0d46b5964c2d199928903d3332c867af617c1270">here</a>.
 
+#### Stage 3 : The Evaluator
+
+With our abstract syntax tree(AST) in hand, we can now evaluate programs. The evaluation is simply traversing the AST and performing the operations specified by the AST. With that in place, we now have a working ***Interpreter*** that *"interprets"* our <b>Hippo</b> programs.
+
 </div>
 
 <hr>
