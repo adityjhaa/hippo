@@ -23,6 +23,8 @@ The finished Stage 2 can be found <a href="https://github.com/adityjhaa/hippo_in
 
 With our abstract syntax tree(AST) in hand, we can now evaluate programs. The evaluation is simply traversing the AST and performing the operations specified by the AST. With that in place, we now have a working ***Interpreter*** that *"interprets"* our <b>Hippo</b> programs.
 
+The finished Stage 3 can be found <a href="https://github.com/adityjhaa/hippo_interpreter/tree/7373f0fa4a6955947759e22b6fef37afa9209b3c">here</a>.
+
 </div>
 
 <hr>
