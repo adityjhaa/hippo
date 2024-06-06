@@ -2,14 +2,16 @@
 
 package evaluator
 
-import "hippo/object"
+import (
+	"fmt"
+	"hippo/object"
+)
 
 var builtins = map[string]*object.Builtin{
 	"len": &object.Builtin{
 		Fn: func(args ...object.Object) object.Object {
 			if len(args) != 1 {
-				return newError("wrong number of arguments. got=%d, want=1",
-					len(args))
+				return newError("wrong number of arguments. got=%d, want=1", len(args))
 			}
 
 			switch arg := args[0].(type) {
@@ -94,6 +96,15 @@ var builtins = map[string]*object.Builtin{
 			newElements[length] = args[1]
 
 			return &object.Array{Elements: newElements}
+		},
+	},
+	"puts": &object.Builtin{
+		Fn: func(args ...object.Object) object.Object {
+			for _, arg := range args {
+				fmt.Println(arg.Inspect())
+			}
+
+			return NULL
 		},
 	},
 }
