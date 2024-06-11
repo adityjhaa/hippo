@@ -1,6 +1,5 @@
 # HIPPO
 
-**An implementation of the Hippo programming language built in *Go*!**
 <hr>
 
 <div align = "justify">
